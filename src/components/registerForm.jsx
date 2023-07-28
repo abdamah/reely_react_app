@@ -23,7 +23,7 @@ class RegisterForm extends Form {
 
       window.location = "/";
     } catch (ex) {
-      if (ex.response && ex.response.status == 400) {
+      if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
         errors.username = ex.response.data;
 

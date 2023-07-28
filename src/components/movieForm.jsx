@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import Form from "./common/form";
 import Joi from "joi-browser";
+import React from "react";
 import { getGenres } from "../services/genreService";
 import { getMovie, saveMovie } from "../services/movieService";
+import Form from "./common/form";
 
 class MovieForm extends Form {
   state = {
@@ -40,7 +40,7 @@ class MovieForm extends Form {
   async populateMovie() {
     try {
       const movieId = this.props.match.params.id;
-      if (movieId == "new") return;
+      if (movieId === "new") return;
       const { data: movie } = await getMovie(movieId);
       this.setState({ data: this.mapToViewModel(movie) });
     } catch (ex) {
